@@ -12,7 +12,13 @@
     </title>
 {% tailwind_css %}    
 </head>
-<body>
+<body class="bd-dark">
+    <div class="container">
+          {% block content %}
+    Default content
+    {% endblock %}
+    </div>
     
+
 </body>
 </html>
