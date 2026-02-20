@@ -6,11 +6,25 @@ Sample Project
 
 
 {% block content %}
-<header class="flex justify-center pt-10">
+
     <h1 class="text-4xl font-bold text-center">
         Hello World
     </h1>
-</header>
+
+    <h2>
+        {% if form.instance.pk %}
+        Edit Tweet
+        {% else %}
+        Create Tweet
+        {% endif %}
+        <form method="post" enctype="multipart/form-data" class="form">
+           {% csrf_token %}
+           {{form.as_p}}
+           <button class="btn btn-warning" type="submit">Submit</button>
+        </form>
+        <a href="{% url 'tweet_list' %}">Back to Tweet List</a>
+    </h2>
+
 
 
 
