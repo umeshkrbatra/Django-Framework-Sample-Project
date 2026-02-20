@@ -36,7 +36,7 @@ Sample Project
 
 </div>
 
-
+        {% if tweet.user == user %}
         <a href="{% url 'tweet_edit' tweet.id %}"
            class="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600 text-sm">
             Edit
@@ -47,6 +47,7 @@ Sample Project
             Delete
         </a>
 
+        {% endif %}
     </div>
 
     <div class="mt-3">
