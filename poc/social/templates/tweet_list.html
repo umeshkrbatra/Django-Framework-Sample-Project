@@ -20,14 +20,22 @@ Sample Project
         <div class="flex items-center justify-between">
 
         <div class="flex items-center space-x-3">
-            <img class="w-10 h-10 rounded-full"
-                 src="{{ tweet.photo.url }}">
 
-            <div>
-                <h2 class="font-semibold">{{ tweet.username }}</h2>
-                <p class="text-sm text-gray-500">@{{ tweet.username }}</p>
-            </div>
-        </div>
+    {% if tweet.photo %}
+        <img class="w-10 h-10 rounded-full"
+             src="{{ tweet.photo.url }}">
+    {% else %}
+        <img class="w-10 h-10 rounded-full"
+             src="https://via.placeholder.com/100">
+    {% endif %}
+
+    <div>
+        <h2 class="font-semibold">{{ tweet.username }}</h2>
+        <p class="text-sm text-gray-500">@{{ tweet.username }}</p>
+    </div>
+
+</div>
+
 
         <a href="{% url 'tweet_edit' tweet.id %}"
            class="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600 text-sm">

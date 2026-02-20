@@ -6,11 +6,17 @@ Sample Project
 
 
 {% block content %}
-<header class="flex justify-center pt-10">
+
     <h1 class="text-4xl font-bold text-center">
-        Hello World
+        Are you sure you want to delete the tweet ? 
     </h1>
-</header>
+
+    <form method="post">
+        {% csrf_token %}
+        <button class="btn btn-danger">Delete</button>
+        <a class="btn btn-success" href="{% url 'tweet_list' %}">Cancel</a>
+    </form>
+
 
 
 
